@@ -9,7 +9,8 @@ __all__ = [
 class GetUserAction(BaseGithubAction):
     def run(self, user, token_user, github_type):
         enterprise = self._is_enterprise(github_type)
-        if token_user:
+        print(token_user)
+        if token_user=='None':
             self._change_to_user_token(token_user, enterprise)
 
         user = self._client.get_user(user)
